@@ -39,6 +39,7 @@ public class TxnparserApplication {
 
             for (WatchEvent<?> event: key.pollEvents()) {
                 if (event.kind() == ENTRY_CREATE) {
+                    @SuppressWarnings("unchecked")
                     WatchEvent<Path> ev = (WatchEvent<Path>)event;
                     Path filename = ev.context();
                     JobParameters jobParameters = new JobParametersBuilder()

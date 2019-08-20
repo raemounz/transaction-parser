@@ -9,7 +9,7 @@ Run `mvn clean package` to build the project. The build artifacts will be stored
 
 ## Setup
 
-This project uses mysql as data store.  Run `resources/createSchema.sql` to create the `test` database.
+This project uses mysql as data store.  Run `resources/createSchema.sql` to create the `txn_db` database.
 
 `application.yml` contains the db configuration and the following folders: 
 

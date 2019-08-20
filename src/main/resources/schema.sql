@@ -1,7 +1,7 @@
 -- Rates table
-DROP TABLE IF EXISTS test.rates;
+DROP TABLE IF EXISTS txn_db.rates;
 
-CREATE TABLE test.rates (
+CREATE TABLE txn_db.rates (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     date DATETIME NOT NULL,
     from_ccy VARCHAR(3) NOT NULL,
@@ -9,12 +9,12 @@ CREATE TABLE test.rates (
     rate DOUBLE NOT NULL
 );
 
-CREATE INDEX date_idx ON test.rates(date);
+CREATE INDEX date_idx ON txn_db.rates(date);
 
 -- Transactions table
-DROP TABLE IF EXISTS test.transactions;
+DROP TABLE IF EXISTS txn_db.transactions;
 
-CREATE TABLE IF NOT EXISTS test.transactions (
+CREATE TABLE IF NOT EXISTS txn_db.transactions (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     date DATETIME NOT NULL,
     account INT NOT NULL,
@@ -22,12 +22,12 @@ CREATE TABLE IF NOT EXISTS test.transactions (
     ccy VARCHAR(3) NOT NULL
 );
 
-CREATE INDEX date_idx ON test.transactions(date);
+CREATE INDEX date_idx ON txn_db.transactions(date);
 
 -- Daily total transactions table
-DROP TABLE IF EXISTS test.daily_txn;
+DROP TABLE IF EXISTS txn_db.daily_txn;
 
-CREATE TABLE IF NOT EXISTS test.daily_txn (
+CREATE TABLE IF NOT EXISTS txn_db.daily_txn (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     date DATETIME NOT NULL,
     no_of_txn SMALLINT NOT NULL DEFAULT 0,
@@ -35,12 +35,12 @@ CREATE TABLE IF NOT EXISTS test.daily_txn (
     ccy VARCHAR(3) NOT NULL
 );
 
-CREATE INDEX date_idx ON test.daily_txn(date);
+CREATE INDEX date_idx ON txn_db.daily_txn(date);
 
 -- Daily total transactions per account table
-DROP TABLE IF EXISTS test.daily_acct_txn;
+DROP TABLE IF EXISTS txn_db.daily_acct_txn;
 
-CREATE TABLE IF NOT EXISTS test.daily_acct_txn (
+CREATE TABLE IF NOT EXISTS txn_db.daily_acct_txn (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     date DATETIME NOT NULL,
     account INT NOT NULL,
@@ -49,4 +49,4 @@ CREATE TABLE IF NOT EXISTS test.daily_acct_txn (
     ccy VARCHAR(3) NOT NULL
 );
 
-CREATE INDEX date_idx ON test.daily_acct_txn(date);
+CREATE INDEX date_idx ON txn_db.daily_acct_txn(date);

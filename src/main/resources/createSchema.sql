@@ -1,1 +1,1 @@
-CREATE SCHEMA `test`;
+CREATE SCHEMA `txn_db`;

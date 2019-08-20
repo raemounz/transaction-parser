@@ -1,8 +1,9 @@
 spring.batch.job.enabled: "false"
 spring.datasource.driverClassName: "com.mysql.jdbc.Driver"
-spring.datasource.url: "jdbc:mysql://localhost:3306/test?useSSL=false"
+spring.datasource.url: "jdbc:mysql://localhost:3306/txn_db?useSSL=false"
 spring.datasource.username: "root"
-spring.datasource.password: "root"
+spring.datasource.password: "p@ssw0rd"
+
 load.directory: "/Users/raymondhalim/Desktop/load"
 archive.directory: "/Users/raymondhalim/Desktop/archive"
 results.directory: "/Users/raymondhalim/Desktop/results"

@@ -60,9 +60,10 @@ public class TransactionsJobCompletionListener extends JobExecutionListenerSuppo
                     "SELECT date, SUM(no_of_txn), SUM(total_amt), 'CAD' from daily_acct_txn WHERE date = CONVERT(?, DATE)",
                     new Object[]{dateString});
 
-            try {
+            try (
                 Writer writer = Files.newBufferedWriter(Paths.get(resultName));
                 CSVPrinter csvPrinter = new CSVPrinter(writer, CSVFormat.DEFAULT.withHeader("DATE", "ACCOUNT", "NO_OF_TXN", "TOTAL_AMT", "CCY"));
+            ) {
                 jdbcTemplate.query("SELECT date_format(date, '%Y-%m-%d'), account, no_of_txn, " +
                                 "total_amt, ccy FROM daily_acct_txn WHERE date = CONVERT(?, DATE) " +
                                 "UNION SELECT date_format(date, '%Y-%m-%d'), NULL, no_of_txn, " +
